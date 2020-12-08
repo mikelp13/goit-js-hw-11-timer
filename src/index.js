@@ -1,18 +1,12 @@
 import './styles.css';
+import refs from './refs'
 
 class CountdownTimer {
-
 
   constructor({ selector, targetDate }) {
     this.timer = document.querySelector(selector);
     this.targetDate = targetDate;
-  
-    this.refs = {
-      daysValue: document.querySelector('[data-value="days"]'),
-      hoursValue: document.querySelector('[data-value="hours"]'),
-      minsValue: document.querySelector('[data-value="mins"]'),
-      secsValue: document.querySelector('[data-value="secs"]'),
-    };
+
   }
 
    getTimeRemaining(time) {
@@ -20,10 +14,10 @@ class CountdownTimer {
     const hours = this.pad( Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
     const mins = this.pad(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)));
     const secs = this.pad(Math.floor((time % (1000 * 60)) / 1000));
-    this.refs.daysValue.textContent = `${days}`;
-    this.refs.hoursValue.textContent = `${hours}`;
-    this.refs.minsValue.textContent = `${mins}`;
-    this.refs.secsValue.textContent = `${secs}`;
+    refs.daysValue.textContent = `${days}`;
+    refs.hoursValue.textContent = `${hours}`;
+    refs.minsValue.textContent = `${mins}`;
+    refs.secsValue.textContent = `${secs}`;
    }
 
   setTimer = setInterval(() => {
